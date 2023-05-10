@@ -3,11 +3,12 @@ const express = require("express");
 const cookieSession = require("cookie-session");
 const connectDB = require("./db/connect");
 const userRouter = require("./routes/routers");
+const cors = require("cors");
 
 const app = express();
 const PORT = 8000;
 
-app.use(express.json());
+app.use(cors());
 
 app.use(
   cookieSession({
@@ -28,5 +29,5 @@ app.use("/user", userRouter); // -> api will localhost/user/...
 app.listen(PORT, () => {
   console.log(`App is running on ${PORT}`);
 });
-
 connectDB();
+// ExportProducts();
