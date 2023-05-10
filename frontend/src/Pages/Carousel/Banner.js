@@ -1,7 +1,6 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import "./Banner.css";
 import { styled } from "@mui/material";
 
 const Image = styled("img")({
@@ -9,7 +8,13 @@ const Image = styled("img")({
   width: "100%",
   cursor: "pointer",
   overflowX: "none",
+  boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.6)",
 });
+
+const StyledCarousel = styled(Carousel)`
+  padding-bottom: 8px;
+`;
+
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -31,7 +36,7 @@ const responsive = {
 
 function Banner() {
   return (
-    <Carousel responsive={responsive} infinite={true} autoPlay={4000}>
+    <StyledCarousel responsive={responsive} infinite={true} autoPlay={4000}>
       <div>
         <Image
           src="https://rukminim1.flixcart.com/flap/3376/560/image/d117a62eb5fbb8e1.jpg?q=50"
@@ -56,7 +61,7 @@ function Banner() {
           alt=""
         />
       </div>
-    </Carousel>
+    </StyledCarousel>
   );
 }
 
